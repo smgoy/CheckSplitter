@@ -2,6 +2,7 @@
 
 <% people = [] %>
 <% total_sum = [] %>
+<% individual_tax = {} %>
 
 <% @items.each do |item| %>
   <% people.push(item.person) %>
@@ -10,23 +11,31 @@
 <% people = people.uniq %>
 
 <% people.each do |person| %>
-  <ul>
-    <li><%= person %></li>
-  </ul>
+  <% individual_tax[person] = (@check.tax/people.length).round(2) %>
 <% end %>
 
+<% if individual_tax.values.sum != @check.tax %>
+  <% r = rand(0..(people.length-1)) %>
+  <% individual_tax[people[r]] = (@check.tax - individual_tax.values.sum).round(2) %>
+<% end %>
+
+<% i = 0 %>
 <% people.each do |person| %>
   <% sum = @check.tax/people.length %>
-  <% @items.each do |item| %>
-    <% if item.person == person %>
-      <% sum += item.price %>
+  <div class="well well-lg col-sm-3">
+    <%= "#{person}'s check:" %><br>
+    <% @items.each do |item| %>
+      <% if item.person == person %>
+        <div style="text-align: left;">
+          <%= item.name %>
+          <%= "$#{'%.2f' % item.price}" %><br>
+        </div>
+        <% sum += item.price %>
+      <% end %>
     <% end %>
-  <% end %>
-  <% total_sum.push(sum) %>
-<% end %>
-
-<% total_sum.each do |sum| %>
-  <ul>
-    <li><%= "$#{'%.2f' % sum}" %></li>
-  </ul>
+    <% total_sum.push(sum) %>
+    <%= "Tax: $#{'%.2f' % individual_tax[person]}" %><br>
+    <%= "Total: $#{'%.2f' % total_sum[i]}" %>
+  </div>
+  <% i += 1 %>
 <% end %>
