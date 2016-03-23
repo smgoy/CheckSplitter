@@ -1,0 +1,32 @@
+<h1>This is your check</h1>
+
+<% people = [] %>
+<% total_sum = [] %>
+
+<% @items.each do |item| %>
+  <% people.push(item.person) %>
+<% end %>
+
+<% people = people.uniq %>
+
+<% people.each do |person| %>
+  <ul>
+    <li><%= person %></li>
+  </ul>
+<% end %>
+
+<% people.each do |person| %>
+  <% sum = @check.tax/people.length %>
+  <% @items.each do |item| %>
+    <% if item.person == person %>
+      <% sum += item.price %>
+    <% end %>
+  <% end %>
+  <% total_sum.push(sum) %>
+<% end %>
+
+<% total_sum.each do |sum| %>
+  <ul>
+    <li><%= "$#{'%.2f' % sum}" %></li>
+  </ul>
+<% end %>

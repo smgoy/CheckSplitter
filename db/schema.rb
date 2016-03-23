@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318023951) do
+ActiveRecord::Schema.define(version: 20160322225440) do
 
   create_table "checks", force: :cascade do |t|
     t.float    "tax"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160318023951) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "total"
   end
 
   create_table "items", force: :cascade do |t|
