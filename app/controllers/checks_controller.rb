@@ -22,7 +22,7 @@ class ChecksController < ApplicationController
   private
 
   def check_params
-    params.require(:check).permit(:tax, :total)
+    params.require(:check).permit(:tax, :total, :tip)
   end
 
 end
