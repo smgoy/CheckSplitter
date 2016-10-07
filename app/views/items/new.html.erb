@@ -24,7 +24,6 @@
   <div id="items" class="well well-lg col-sm-3 col-sm-offset-1">
     <% @items.each do |item| %>
         <%= "#{item.person}: #{item.name} - $#{'%.2f' % item.price}" %><br>
-        <%= link_to 'Delete', check_item_path(item), method: :delete %><br>
     <% end %>
     <%= link_to 'Finalize', check_path(@item.check_id), class: "btn btn-primary btn-sm", style: "margin-top: 10px;" %>
   </div>

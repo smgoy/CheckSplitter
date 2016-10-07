@@ -22,7 +22,7 @@
 <% i = 0 %>
 <% people.each do |person| %>
   <% sum = @check.tax/people.length %>
-  <div class="well well-lg col-sm-3">
+  <div class="well well-lg col-sm-3 text">
     <%= "#{person}'s check:" %><br>
     <% @items.each do |item| %>
       <% if item.person == person %>
