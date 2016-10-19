@@ -25,9 +25,3 @@ Items are nested under the check route so each item can be associated to the cor
 Finally, the user reaches the check show page, where the user can see the split check and each person's total contribution to the bill.
 
 ![alt tag](app/assets/images/check_display.png)
-
-#Check Splitter Mobile
-
-After becoming a more advanced developer and after learning React Native, I created a more advanced mobile version of Check Splitter.
-
-[Checkout my Check Splitter Mobile Repository](https://github.com/smgoy/CheckSplitterMobile)
