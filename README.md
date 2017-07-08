@@ -1,4 +1,4 @@
-#Check Splitter
+#CheckSplitter App
 
 Check Splitter was my first experimental Rails application inspired by my experience working as a server. The application uses Ruby on Rails MVC framework.
 
